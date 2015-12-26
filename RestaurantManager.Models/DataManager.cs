@@ -1,6 +1,9 @@
-﻿namespace RestaurantManager.Models
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace RestaurantManager.Models
 {
-    public abstract class DataManager
+    public abstract class DataManager : INotifyPropertyChanged
     {
         protected RestaurantContext Repository { get; private set; }
 
@@ -17,5 +20,15 @@
         }
 
         protected abstract void OnDataLoaded();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName] string propname = null)
+        {
+            if (PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propname));
+            }
+        }
     }
 }
