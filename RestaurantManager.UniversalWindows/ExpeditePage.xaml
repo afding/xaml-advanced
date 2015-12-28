@@ -26,6 +26,28 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <ListView Height="200"
+                                  ItemsSource="{Binding Items}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <TextBlock HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding SpecialRequests}" />
+
+                        <Button HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="Delete" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
         </GridView>
         <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
     </Grid>
