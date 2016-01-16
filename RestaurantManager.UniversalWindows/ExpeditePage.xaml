@@ -32,25 +32,38 @@
         <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <ListView Height="200"
-                                  ItemsSource="{Binding Items}">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Title}" />
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-
-                        <TextBlock HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding SpecialRequests}" />
-
-                        <Button HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Content="Delete"
-                                Background="{Binding Expedite, Converter={StaticResource BoolToColorConverter}}"/>
-                    </StackPanel>
+                    <Grid Background="Gray" Height="325" Width="275" Margin="20,5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <Border Background="DarkGray">
+                            <ListBox ItemsSource="{Binding Items}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding Title}" Style="{StaticResource SubtitleTextBlockStyle}" TextWrapping="NoWrap"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Border>
+                        <StackPanel Grid.Row="1" Orientation="Vertical">
+                            <TextBlock Margin="5" Text="{Binding Table.Description}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="WrapWholeWords"/>
+                            <TextBlock Margin="10" Style="{StaticResource CaptionTextBlockStyle}" TextWrapping="NoWrap">
+                        <Run Text="Special Notes:" />
+                        <LineBreak />
+                        <Run Text="{Binding SpecialRequests}" />
+                            </TextBlock>
+                        </StackPanel>
+                        <Border Grid.Row="2">
+                            <Border.Background>
+                                <SolidColorBrush x:Name="StatusBrush" Color="{Binding Expedite, Converter={StaticResource BoolToColorConverter}}" />
+                            </Border.Background>
+                            <Button Content="Delete" HorizontalAlignment="Center" />
+                        </Border>
+                    </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
