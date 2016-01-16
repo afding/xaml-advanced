@@ -24,3 +24,4 @@ namespace RestaurantManager.Extensions
             throw new NotImplementedException();
         }
     }
+}

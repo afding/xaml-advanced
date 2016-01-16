@@ -138,9 +138,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Extensions\Extensions.csproj">
-      <Project>{861c09ac-e5d5-4fd4-abab-413037f62478}</Project>
-      <Name>Extensions</Name>
+    <ProjectReference Include="..\RestaurantManager.Extensions\RestaurantManager.Extensions.csproj">
+      <Project>{5a8f1c41-3d5f-4b01-9194-40a462ec60a5}</Project>
+      <Name>RestaurantManager.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Models\RestaurantManager.Models.csproj">
       <Project>{7ea2b405-e454-4f0c-a8c3-d6bf3f814f5c}</Project>

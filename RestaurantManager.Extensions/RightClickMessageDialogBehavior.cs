@@ -25,7 +25,6 @@ namespace RestaurantManager.Extensions
 
         private void RightClickBehavior_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            //new MessageDialog("Thank you for trying out this demo!", "Thank you!").ShowAsync();
             new MessageDialog(Message, Title).ShowAsync();
         }
 
