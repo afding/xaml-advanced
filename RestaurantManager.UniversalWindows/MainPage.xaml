@@ -5,7 +5,13 @@
     xmlns:local="using:RestaurantManager.UniversalWindows"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:extensions="using:Extensions"
     mc:Ignorable="d">
+
+    <i:Interaction.Behaviors>
+        <extensions:RightClickBehavior />
+    </i:Interaction.Behaviors>
 
     <Page.Resources>
         <ControlTemplate x:Key="MainPageButtonTemplate" TargetType="Button" >
