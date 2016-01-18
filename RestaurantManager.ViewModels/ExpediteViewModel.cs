@@ -12,7 +12,7 @@ namespace RestaurantManager.ViewModels
 
         public ObservableCollection<Order> OrderItems
         {
-            get { return base.Repository.Orders; }
+            get { return new ObservableCollection<Order>(base.Repository.Orders); }
         }
     }
 }
