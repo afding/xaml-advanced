@@ -75,9 +75,8 @@ namespace RestaurantManager.ViewModels
             }
         }
 
-        private void DeleteExecute()
+        public void DeleteExecute()
         {
-            new MessageDialog("Hello").ShowAsync();
             // So I really want to give it an "order to delete" parameter and use a CommandParameter and databinding,
             // Alas, Due to the DelegateCommand class, I cannot add parameters to my "_execute" functions.
             
