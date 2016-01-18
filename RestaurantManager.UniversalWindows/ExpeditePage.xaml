@@ -29,7 +29,7 @@
             <RowDefinition Height="0.85*"/>
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
-        <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+        <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}" SelectedItem="{Binding ListViewSelectedOrder, Mode=TwoWay}">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Background="Gray" Height="325" Width="275" Margin="20,5">
@@ -61,12 +61,12 @@
                             <Border.Background>
                                 <SolidColorBrush x:Name="StatusBrush" Color="{Binding Expedite, Converter={StaticResource BoolToColorConverter}}" />
                             </Border.Background>
-                            <Button Content="Delete" HorizontalAlignment="Center" />
+                            <Button Content="Delete" HorizontalAlignment="Center" Command="{Binding DeleteCommand}" />
                         </Border>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
-        <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
+        <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Command="{Binding ClearAllOrdersCommand}" />
     </Grid>
 </Page>
